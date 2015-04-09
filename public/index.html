@@ -1,0 +1,132 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  $(function() {
+
+    var url = 'https://semver.io/node.json'
+    $.getJSON(url, function(versions) {
+      window.versions = versions;
+      $("#stable").text(versions.stable).addClass('active')
+      $("#unstable").text(versions.unstable).addClass('active')
+      $("p").addClass('active')
+      $("#content").addClass('active')
+      $("footer").addClass('active')
+    })
+
+  })
+</script>
+
+<style type="text/css">
+  body {
+    background-color: #33342D;
+    color: white;
+    font-family: "helvetica neue", helvetica, arial;
+  }
+  #wrapper {
+    width: 100%;
+    height: 100%;
+    text-align:center;
+  }
+
+  #content {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+  }
+
+  #content.active {
+    top: 50%;
+  }
+
+  h1 {
+    color: #8BC84B;
+    font-size: 300px;
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  h1.active, p.active {
+    opacity: 1;
+  }
+
+  @media (max-width: 1000px) {
+    h1 {
+      font-size: 130px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 80px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    text-align: center;
+    color: #C3C9AD;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  #unstable {
+    color: white;
+  }
+
+
+  footer {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    -webkit-transform: translate(-50%, -50px);
+    -moz-transform: translate(-50%, -50px);
+    transform: translate(-50%, -50px);
+    transition: all 0.3s ease-out 0.5s;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    opacity: 0.4;
+  }
+
+  footer a {
+    color: #C3C9AD;
+  }
+
+  footer.active {
+    top: 100%;
+  }
+
+  @media (max-width: 600px) {
+    footer {
+      -webkit-transform: translate(-50%, -100px);
+      -moz-transform: translate(-50%, -100px);
+      transform: translate(-50%, -100px);
+    }
+  }
+
+</style>
+
+<body>
+  <div id="wrapper">
+    <div id="content">
+      <h1 id="stable">X</h1>
+      <p>
+        Sample text here
+      </p>
+    </div>
+    <footer>
+      Running on <a href="https://heroku.com">Heroku</a>.
+    </footer>
+  </div>
+
+</body>
