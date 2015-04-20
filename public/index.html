@@ -124,6 +124,35 @@
         Sample text here
       </p>
     </div>
+    <div align="center">
+        <select id="ddl" onChange="showTA()" style="margin:0 auto">
+            <option value="none">Select Product</option>
+            <option value="ib">IB</option>
+            <option value="rs">RS</option>
+            <option value="bp">BP</option>
+        </select>
+  </div>
+  <div>
+        <table id="selectBox" align="center" width="80%" class="tables"
+                    style="display:block; margin:0 auto; border: 1px solid red;">
+                <tr class="header_rows" align="left">
+                    <th>tPSA</th>
+                    <th>CLogP</th>
+                    <th>Biodegradable</th>
+                    <th>Toxicity</th>
+                    <th>Cost</th>
+                    <th>Starting Material Source</th>
+                </tr>
+                <tr class="data_rows" ng-repeat='b in t1'>
+                    <td class="tds">{{b.tPSA}}</td>
+                    <td class="tds">{{b.CLogP}}</td>
+                    <td class="tds">{{b.Biodegradable}}</td>
+                    <td class="tds">{{b.Toxicity}}</td>
+                    <td class="tds">{{b.Cost}}</td>
+                    <td class="tds">{{b.Starting}}</td>
+                </tr>
+        </table>
+  </div>
     <footer>
       Running on <a href="https://heroku.com">Heroku</a>.
     </footer>
