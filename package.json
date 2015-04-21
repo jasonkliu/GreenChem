@@ -11,5 +11,13 @@
   "dependencies": {
     "express": "~3.4.4",
     "logfmt": "~0.16.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.7.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonkliu/GreenChem"
   }
 }
