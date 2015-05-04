@@ -147,15 +147,34 @@
                     <th>Starting Material Source</th>
                 </tr>
                 <tr class="data_rows" ng-repeat='b in t1'>
-                    <td class="tds">{{b.tPSA}}</td>
-                    <td class="tds">{{b.CLogP}}</td>
-                    <td class="tds">{{b.Biodegradable}}</td>
-                    <td class="tds">{{b.Toxicity}}</td>
-                    <td class="tds">{{b.Cost}}</td>
-                    <td class="tds">{{b.Starting}}</td>
+                    <td><span class="tPSA">{{b.tPSA}}</span></td>
+                    <td><span class="ClogP">{{b.CLogP}}</span></td>
+                    <td><span class="Biodeg">{{b.Biodegradable}}</span></td>
+                    <td><span class="Toxicitity">{{b.Toxicity}}</span></td>
+                    <td><span class="Cost">{{b.Cost}}</span></td>
+                    <td><span class="Starting">{{b.Starting}}</span></td>
                 </tr>
         </table>
   </div>
+
+  <!-- https://stackoverflow.com/questions/6164507 -->
+  <script>
+      document
+          .getElementById('ddl')
+          .addEventListener('change', function () {
+              'use strict';
+              var vis = document.querySelector('.vis'),
+                  target = document.getElementById(this.value);
+              console.log(target);
+              if (vis !== null) {
+                  vis.className = 'inv';
+              }
+              if (target !== null ) {
+                  data_rows.className = 'vis';
+              }
+      });
+  </script>
+
   <script>
   	// setup component
   	var transformBallAndStick = new ChemDoodle.TransformCanvas3D('transformBallAndStick', 800, 800);
