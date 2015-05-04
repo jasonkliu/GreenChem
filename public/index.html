@@ -18,6 +18,23 @@
   })
 </script>-->
 
+  <script>
+  $(document).ready(function(){
+    $('#ddl').change(function(){
+      var target = $("option:selected").text();
+      console.log(target);
+
+      if (target === "IB") {
+        $('.tPSA').html('Whatever <b>HTML</b> you want here.');
+      }
+
+      /*$(target).children().addClass('hide');
+      var show = $("option:selected", this).data('show');
+      $(show).removeClass('hide');*/
+  });
+});
+  </script>
+
 <style type="text/css">
   body {
     background-color: #33342D;
@@ -128,7 +145,7 @@
       </p>
     </div>-->
     <div align="center">
-        <select id="ddl" onChange="showTA()" style="margin:0 auto">
+        <select id="ddl" style="margin:0 auto">
             <option value="none">Select Product</option>
             <option value="ib">IB</option>
             <option value="rs">RS</option>
@@ -157,23 +174,6 @@
         </table>
   </div>
 
-  <!-- https://stackoverflow.com/questions/6164507 -->
-  <script>
-      document
-          .getElementById('ddl')
-          .addEventListener('change', function () {
-              'use strict';
-              var vis = document.querySelector('.vis'),
-                  target = document.getElementById(this.value);
-              console.log(target);
-              if (vis !== null) {
-                  vis.className = 'inv';
-              }
-              if (target !== null ) {
-                  data_rows.className = 'vis';
-              }
-      });
-  </script>
 
   <script>
   	// setup component
