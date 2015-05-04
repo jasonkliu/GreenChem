@@ -23,16 +23,37 @@
     $('#ddl').change(function(){
       var target = $("option:selected").text();
       console.log(target);
-
-      if (target === "IB") {
-        $('.tPSA').html('Whatever <b>HTML</b> you want here.');
+      if (target === "C12 alcohol") {
+        $('.tPSA').html("23.8");   // don't know these values
+        $('.ClogP').html("4.98");
+        $('.Biodeg').html("More");
+        $('.Toxicity').html("Some");
+        $('.Cost').html("Decent");
+        $('.Starting').html("A bit");
+      } else if (target === "Alkyl sulfate") {
+        $('.tPSA').html("63.6");
+        $('.ClogP').html("4.995");
+        $('.Biodeg').html("Some");
+        $('.Toxicity').html("More");
+        $('.Cost').html("Decent");
+        $('.Starting').html("A bit");
+      } else if (target === "Sodium dodecyl sulfate") {
+        $('.tPSA').html("52.6");
+        $('.ClogP').html("4.95");
+        $('.Biodeg').html("More");
+        $('.Toxicity').html("More");
+        $('.Cost').html("Decent");
+        $('.Starting').html("A bit");
+      } else {
+        $('.tPSA').html("{{b.tPSA}}");
+        $('.ClogP').html("{{b.CLogP}}");
+        $('.Biodeg').html("{{b.Biodegradable}}");
+        $('.Toxicity').html("{{b.Toxicity}}");
+        $('.Cost').html("{{b.Cost}}");
+        $('.Starting').html("{{b.Starting}}");
       }
-
-      /*$(target).children().addClass('hide');
-      var show = $("option:selected", this).data('show');
-      $(show).removeClass('hide');*/
+    });
   });
-});
   </script>
 
 <style type="text/css">
@@ -147,9 +168,9 @@
     <div align="center">
         <select id="ddl" style="margin:0 auto">
             <option value="none">Select Product</option>
-            <option value="ib">IB</option>
-            <option value="rs">RS</option>
-            <option value="bp">BP</option>
+            <option value="alcohol">C12 alcohol</option>
+            <option value="alkyl">Alkyl sulfate</option>
+            <option value="dodecyl">Sodium dodecyl sulfate</option>
         </select>
   </div>
   <div>
@@ -167,7 +188,7 @@
                     <td><span class="tPSA">{{b.tPSA}}</span></td>
                     <td><span class="ClogP">{{b.CLogP}}</span></td>
                     <td><span class="Biodeg">{{b.Biodegradable}}</span></td>
-                    <td><span class="Toxicitity">{{b.Toxicity}}</span></td>
+                    <td><span class="Toxicity">{{b.Toxicity}}</span></td>
                     <td><span class="Cost">{{b.Cost}}</span></td>
                     <td><span class="Starting">{{b.Starting}}</span></td>
                 </tr>
